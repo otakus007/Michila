@@ -7,6 +7,10 @@
  * Optimized for: Neovim, Terminal Multiplexers (Tmux/WezTerm), Coding Agents (Antigravity/Cursor/Claude), and Windows WM
  */
 
+// Pointing / Mouse speed configuration (must be defined before including mouse.h / pointing.h)
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1400  // Tốc độ di chuột bằng 5-way switch
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 900   // Tốc độ cuộn bằng con lăn Scroll
+
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <dt-bindings/zmk/mouse.h>
@@ -23,10 +27,6 @@
 #define SYM_CODE  2
 #define NUM_FN    3
 #define AGENT_SYS 4
-
-// Pointing / Mouse speed configuration
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1400  // Tốc độ di chuột bằng 5-way switch
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 900   // Tốc độ cuộn bằng con lăn Scroll
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
@@ -258,7 +258,7 @@
             bindings = <
 &kp ESC      &kp LC(W)    &mkp LCLK     &mkp RCLK     &kp LC(T)      &kp HOME    &kp PG_DN     &kp PG_UP     &kp END      &kp INS
 &kp LGUI     &kp LALT     &kp LCTRL     &kp LSHFT     &mkp MCLK      &kp LEFT    &kp DOWN      &kp UP        &kp RIGHT    &kp LC(FSLH)
-&kp LC(Z)    &kp LC(X)    &kp LC(C)     &kp LC(V)     &kp LC(Y)      &kp LC(LEFT) &msc SCRL_DOWN &msc SCRL_UP &kp LC(RIGHT) &kp APP
+&kp LC(Z)    &kp LC(X)    &kp LC(C)     &kp LC(V)     &kp LC(Y)      &kp LC(LEFT) &msc SCRL_DOWN &msc SCRL_UP &kp LC(RIGHT) &kp K_APP
 &trans       &trans       &trans        &trans        &mkp LCLK      &trans      &kp RET       &kp BSPC      &kp DEL      &trans
 &trans       &trans       &trans        &trans        &trans         &kp LG(LC(LEFT)) &kp LG(DOWN) &kp LG(TAB) &kp LG(UP) &kp LG(LC(RIGHT))
             >;
